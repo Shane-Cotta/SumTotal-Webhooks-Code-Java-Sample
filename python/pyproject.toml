@@ -1,0 +1,10 @@
+[project]
+name = "sumtotal-webhook-listener"
+version = "0.0.1"
+description = "Python sample for receiving and validating SumTotal webhook events."
+requires-python = ">=3.9"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+asyncio_mode = "auto"

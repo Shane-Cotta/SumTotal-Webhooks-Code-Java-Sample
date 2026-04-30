@@ -1,0 +1,12 @@
+### Health check
+GET http://localhost:8080/
+
+### Listen event - empty signature returns the "secretkey is empty" path when secret unset
+POST http://localhost:8080/api/listenevent
+Content-Type: application/json
+X-SUMT-Signature: t=1700000000,v1=deadbeef
+
+{
+  "eventType": "test",
+  "data": { "hello": "world" }
+}

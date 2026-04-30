@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "venv: create",
+      "type": "shell",
+      "command": "python3 -m venv .venv",
+      "problemMatcher": [],
+      "options": { "cwd": "${workspaceFolder}" }
+    },
+    {
+      "label": "pip: install requirements",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/pip install -r requirements.txt",
+      "problemMatcher": [],
+      "options": { "cwd": "${workspaceFolder}" }
+    },
+    {
+      "label": "setup: venv + install",
+      "dependsOrder": "sequence",
+      "dependsOn": ["venv: create", "pip: install requirements"],
+      "problemMatcher": []
+    },
+    {
+      "label": "run: webhook listener",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/python run.py",
+      "problemMatcher": [],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "test: pytest",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/pytest -v",
+      "problemMatcher": [],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": true }
+    }
+  ]
+}
