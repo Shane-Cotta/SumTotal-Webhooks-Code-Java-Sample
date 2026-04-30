@@ -31,3 +31,8 @@ htmlcov/
 .idea/
 *.swp
 .DS_Store
+
+# Java reference build artifacts
+java/target/
+java/.mvn/
+java/dependency-reduced-pom.xml
